@@ -7,8 +7,6 @@ public interface ArtistDAO {
 
     Artist create(Artist a);
 
-    void add(Artist a);
-
     List<Artist> list();
 
     Artist get(int id);
