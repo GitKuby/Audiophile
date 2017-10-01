@@ -22,4 +22,4 @@ jdk:
 os:
   - linux
 
-script: tool/travis-script.sh
+script: scripts/travis-script.sh
