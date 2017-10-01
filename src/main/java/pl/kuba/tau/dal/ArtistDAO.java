@@ -2,6 +2,7 @@ package pl.kuba.tau.dal;
 
 import java.util.List;
 import pl.kuba.tau.domain.Artist;
+import pl.kuba.tau.exception.DAOException;
 
 public interface ArtistDAO {
 
@@ -11,7 +12,7 @@ public interface ArtistDAO {
 
     Artist get(int id);
 
-    Artist update(Artist a);
+    Artist update(Artist a) throws DAOException;
 
     void delete(Artist a);
 }

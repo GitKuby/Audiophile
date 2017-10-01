@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import pl.kuba.tau.domain.Artist;
+import pl.kuba.tau.exception.DAOException;
 
 public class ArtistDAOTest {
 
@@ -24,7 +25,7 @@ public class ArtistDAOTest {
 
     @Before
     public void beforeEveryTest() {
-        dao.list().clear();
+        ((ArtistDAOImpl) dao).clearDb();
     }
 
     @Test
@@ -60,12 +61,11 @@ public class ArtistDAOTest {
     }
 
     @Test
-    public void testUpdateArtist() {
+    public void testUpdateArtist() throws DAOException {
         Artist a = dao.create(testArtist);
         assertNotNull(a);
         int newBirthYear = 1980;
-        a.setBirthYear(newBirthYear);
-        a = dao.update(a);
+        a = dao.update(new Artist(ID, NAME, newBirthYear));
         assertNotNull(a);
         assertEquals(ID, a.getId());
         assertEquals(NAME, a.getName());
