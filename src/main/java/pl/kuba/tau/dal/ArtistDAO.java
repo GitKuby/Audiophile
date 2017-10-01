@@ -1,9 +1,9 @@
-package pl.kuba.tau.service;
+package pl.kuba.tau.dal;
 
 import java.util.List;
 import pl.kuba.tau.domain.Artist;
 
-public interface ArtistManager {
+public interface ArtistDAO {
 
     Artist create(Artist a);
 
@@ -15,5 +15,5 @@ public interface ArtistManager {
 
     Artist update(Artist a);
 
-    void delete(int id);
+    void delete(Artist a);
 }
