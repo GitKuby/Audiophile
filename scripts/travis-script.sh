@@ -11,7 +11,7 @@ D=$PWD
 # sleep 1s
 
 
-cd Audiophile
+# cd Audiophile
 mvn test
 
 
