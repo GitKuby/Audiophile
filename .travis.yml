@@ -22,4 +22,5 @@ jdk:
 os:
   - linux
 install: true
-script: scripts/travis-script.sh
+script:
+  - mvn test
