@@ -1,8 +1,6 @@
 package pl.kuba.tau.domain;
 
-import java.io.Serializable;
-
-public class Artist extends AbstractEntity implements Serializable {
+public class Artist extends AbstractEntity  {
 
     private String name;
     private int birthYear;
