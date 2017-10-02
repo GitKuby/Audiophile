@@ -11,14 +11,6 @@ public class ArtistDAOImpl extends AbstractDAO<Artist> implements ArtistDAO {
 
     private final Map<Integer, Artist> artists = new HashMap<>();
 
-    public ArtistDAOImpl() {
-        super(Artist.class);
-    }
-
-    public void clearDb() {
-        artists.clear();
-    }
-
     @Override
     public Artist create(Artist a) {
         if (a == null) {

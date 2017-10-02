@@ -25,7 +25,7 @@ public class ArtistDAOTest {
 
     @Before
     public void beforeEveryTest() {
-        ((ArtistDAOImpl) dao).clearDb();
+        dao = new ArtistDAOImpl(); //fresh 'db' in every test
     }
 
     @Test
@@ -65,10 +65,11 @@ public class ArtistDAOTest {
         Artist a = dao.create(testArtist);
         assertNotNull(a);
         int newBirthYear = 1980;
-        a = dao.update(new Artist(ID, NAME, newBirthYear));
+        String newName = "Elvis";
+        a = dao.update(new Artist(ID, newName, newBirthYear));
         assertNotNull(a);
         assertEquals(ID, a.getId());
-        assertEquals(NAME, a.getName());
+        assertEquals(newName, a.getName());
         assertEquals(newBirthYear, a.getBirthYear());
     }
 
