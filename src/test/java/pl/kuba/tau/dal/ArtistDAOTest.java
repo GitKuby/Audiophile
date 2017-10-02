@@ -1,13 +1,15 @@
 package pl.kuba.tau.dal;
 
-import java.util.List;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import pl.kuba.tau.domain.Artist;
 import pl.kuba.tau.exception.DAOException;
+
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class ArtistDAOTest {
 

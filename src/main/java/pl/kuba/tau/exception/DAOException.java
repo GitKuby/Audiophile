@@ -7,7 +7,7 @@ public class DAOException extends Exception {
 
         private final String message;
 
-        private ErrorCode(String message) {
+        ErrorCode(String message) {
             this.message = message;
         }
     }
