@@ -75,6 +75,17 @@ public class ArtistDAOTest {
         assertEquals(newBirthYear, a.getBirthYear());
     }
 
+    @Test(expected = DAOException.class)
+    public void testUpdateArtistWithExc() throws DAOException {
+        Artist a = dao.create(testArtist);
+        assertNotNull(a);
+        int newBirthYear = 1980;
+        String newName = "Elvis";
+        int wrongId = 5;
+        a = dao.update(new Artist(wrongId, newName, newBirthYear));
+        assertNotNull(a);
+    }
+
     @Test
     public void testDeleteArtist() {
         Artist a = dao.create(testArtist);
