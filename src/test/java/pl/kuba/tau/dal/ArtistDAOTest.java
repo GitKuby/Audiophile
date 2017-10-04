@@ -82,8 +82,7 @@ public class ArtistDAOTest {
         int newBirthYear = 1980;
         String newName = "Elvis";
         int wrongId = 5;
-        a = dao.update(new Artist(wrongId, newName, newBirthYear));
-        assertNotNull(a);
+        dao.update(new Artist(wrongId, newName, newBirthYear));
     }
 
     @Test
