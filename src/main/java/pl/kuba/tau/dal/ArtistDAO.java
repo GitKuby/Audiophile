@@ -1,8 +1,9 @@
 package pl.kuba.tau.dal;
 
-import java.util.List;
 import pl.kuba.tau.domain.Artist;
 import pl.kuba.tau.exception.DAOException;
+
+import java.util.List;
 
 public interface ArtistDAO {
 

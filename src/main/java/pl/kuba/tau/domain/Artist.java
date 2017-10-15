@@ -1,6 +1,6 @@
 package pl.kuba.tau.domain;
 
-public class Artist extends AbstractEntity  {
+public class Artist extends AbstractEntity {
 
     private String name;
     private int birthYear;
@@ -37,5 +37,4 @@ public class Artist extends AbstractEntity  {
     public void setBirthYear(int birthYear) {
         this.birthYear = birthYear;
     }
-
 }

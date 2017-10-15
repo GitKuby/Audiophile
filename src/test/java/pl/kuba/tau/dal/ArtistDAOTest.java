@@ -1,13 +1,15 @@
 package pl.kuba.tau.dal;
 
-import java.util.List;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import pl.kuba.tau.domain.Artist;
 import pl.kuba.tau.exception.DAOException;
+
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class ArtistDAOTest {
 
@@ -71,6 +73,16 @@ public class ArtistDAOTest {
         assertEquals(ID, a.getId());
         assertEquals(newName, a.getName());
         assertEquals(newBirthYear, a.getBirthYear());
+    }
+
+    @Test(expected = DAOException.class)
+    public void testUpdateArtistWithExc() throws DAOException {
+        Artist a = dao.create(testArtist);
+        assertNotNull(a);
+        int newBirthYear = 1980;
+        String newName = "Elvis";
+        int wrongId = 5;
+        dao.update(new Artist(wrongId, newName, newBirthYear));
     }
 
     @Test

@@ -1,11 +1,12 @@
 package pl.kuba.tau.dal;
 
+import pl.kuba.tau.domain.Artist;
+import pl.kuba.tau.exception.DAOException;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import pl.kuba.tau.domain.Artist;
-import pl.kuba.tau.exception.DAOException;
 
 public class ArtistDAOImpl extends AbstractDAO<Artist> implements ArtistDAO {
 
@@ -48,5 +49,4 @@ public class ArtistDAOImpl extends AbstractDAO<Artist> implements ArtistDAO {
     public void delete(Artist a) {
         artists.remove(a.getId());
     }
-
 }
