@@ -1,4 +1,4 @@
-package pl.kuba.tau.dal;
+package pl.kuba.tau.dao;
 
 import pl.kuba.tau.domain.Artist;
 import pl.kuba.tau.exception.DAOException;
@@ -24,7 +24,9 @@ public class ArtistDAOImpl extends AbstractDAO<Artist> implements ArtistDAO {
     @Override
     public List<Artist> list() {
         List<Artist> resp = new ArrayList<>();
-        artists.values().forEach(a -> resp.add(clone(a)));
+        for (Artist artist : artists.values()) {
+            resp.add(clone(artist));
+        }
         return resp;
     }
 
@@ -46,7 +48,10 @@ public class ArtistDAOImpl extends AbstractDAO<Artist> implements ArtistDAO {
     }
 
     @Override
-    public void delete(Artist a) {
-        artists.remove(a.getId());
+    public void delete(Artist a) throws DAOException {
+        Artist artist = artists.remove(a.getId());
+        if (artist == null) {
+            throw new DAOException(DAOException.ErrorCode.ENTITY_NOT_FOUND);
+        }
     }
 }
