@@ -1,4 +1,4 @@
-package pl.kuba.tau.dal;
+package pl.kuba.tau.dao;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -21,7 +21,6 @@ public class ArtistDAOTest {
 
     @BeforeClass
     public static void setUp() {
-        dao = new ArtistDAOImpl();
         testArtist = new Artist(ID, NAME, BIRTH_YEAR);
     }
 
@@ -86,7 +85,7 @@ public class ArtistDAOTest {
     }
 
     @Test
-    public void testDeleteArtist() {
+    public void testDeleteArtist() throws DAOException {
         Artist a = dao.create(testArtist);
         assertNotNull(a);
         assertNotNull(a);
