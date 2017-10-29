@@ -1,4 +1,4 @@
-package pl.kuba.tau.dal;
+package pl.kuba.tau.dao;
 
 import pl.kuba.tau.domain.Artist;
 import pl.kuba.tau.exception.DAOException;
@@ -15,5 +15,5 @@ public interface ArtistDAO {
 
     Artist update(Artist a) throws DAOException;
 
-    void delete(Artist a);
+    void delete(Artist a) throws DAOException;
 }

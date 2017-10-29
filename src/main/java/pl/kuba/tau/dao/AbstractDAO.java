@@ -1,4 +1,4 @@
-package pl.kuba.tau.dal;
+package pl.kuba.tau.dao;
 
 import org.apache.commons.lang.SerializationUtils;
 import pl.kuba.tau.domain.AbstractEntity;
