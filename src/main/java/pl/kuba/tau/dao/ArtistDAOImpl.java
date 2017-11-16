@@ -27,6 +27,7 @@ public class ArtistDAOImpl extends AbstractDAO<Artist> implements ArtistDAO {
         for (Artist artist : artists.values()) {
             resp.add(clone(artist));
         }
+        int a;
         return resp;
     }
 
