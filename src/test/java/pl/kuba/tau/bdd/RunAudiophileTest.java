@@ -7,7 +7,8 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         format = {"pretty", "html:target/cucumber"},
-        features = "classpath:Audiophile.feature"
+        features = {"classpath:ArtistsByRegex.feature",
+                "classpath:DeleteArtists.feature"}
 )
 public class RunAudiophileTest {
 }

@@ -29,4 +29,13 @@ public class Artist extends AbstractEntity {
     public void setBirthYear(int birthYear) {
         this.birthYear = birthYear;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o.getClass() != getClass()) {
+            return false;
+        }
+        Artist a = (Artist) o;
+        return a.getId() == id && a.getName().equals(name) && a.birthYear == birthYear;
+    }
 }
