@@ -20,6 +20,9 @@ public class StartPage {
     @FindBy(xpath = "//*[@id=\"header\"]/div[3]/div/div/div[3]/div")
     WebElement basketLink;
 
+    @FindBy(css = "#home-page-tabs > li.active > a")
+    WebElement bestSellerButton;
+
     public StartPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -39,5 +42,16 @@ public class StartPage {
     public void open() {
         driver.get(URL);
         PageFactory.initElements(driver, this);
+    }
+
+    public void clickBestSellers() {
+        bestSellerButton.click();
+    }
+
+    public boolean isBestSellersActive() {
+//            driver.findElement.
+
+        return false;
+
     }
 }

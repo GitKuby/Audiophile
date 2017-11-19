@@ -54,4 +54,10 @@ public class StartPageTest {
         Assert.assertNotNull(startPage.getBasketLink());
     }
 
+    @Test
+    public void checkBestSellers() {
+        startPage.clickBestSellers();
+
+    }
+
 }
