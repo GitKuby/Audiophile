@@ -1,5 +1,8 @@
 package pl.kuba.tau.pages;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,16 +15,25 @@ public class StartPage {
     private final WebDriver driver;
 
     @FindBy(xpath = "//*[@id=\"header\"]/div[2]/div/div/nav/span/strong")
-    WebElement phoneNo;
+    private WebElement phoneNo;
 
     @FindBy(id = "homeslider")
-    WebElement loremSlider;
+    private WebElement loremSlider;
 
     @FindBy(xpath = "//*[@id=\"header\"]/div[3]/div/div/div[3]/div")
-    WebElement basketLink;
+    private WebElement basketLink;
 
-    @FindBy(css = "#home-page-tabs > li.active > a")
-    WebElement bestSellerButton;
+    @FindBy(xpath = "//*[@id=\"home-page-tabs\"]/li[2]/a")
+    private WebElement bestSellerButton;
+
+    @FindBy(xpath = "//*[@id=\"block_top_menu\"]/ul/li[2]")
+    private WebElement dressesButton;
+
+    @FindBy(xpath = "//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[1]")
+    private WebElement dressesSubMenu;
+
+    @FindBy(xpath = "//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a")
+    private WebElement signIn;
 
     public StartPage(WebDriver driver) {
         this.driver = driver;
@@ -48,10 +60,41 @@ public class StartPage {
         bestSellerButton.click();
     }
 
-    public boolean isBestSellersActive() {
-//            driver.findElement.
+    public WebElement getDressesButton() {
+        return dressesButton;
+    }
 
+    public WebElement getSignIn() {
+        return signIn;
+    }
+
+    public WebElement getDressesSubMenu() {
+        System.out.println("SUBMENU: " + dressesSubMenu.getText());
+        return dressesSubMenu;
+    }
+
+    public List<WebElement> getProducts() {
+        List<WebElement> elements = driver.findElement(By.cssSelector("#blockbestsellers"))
+                .findElements(By.tagName("li"));
+        List<WebElement> returnList = new ArrayList<>();
+        for (WebElement element : elements) {
+            if (element.isDisplayed()) {
+                returnList.add(element);
+            }
+        }
+        return returnList;
+    }
+
+    public boolean isPrintedChiffonDressVisible(List<WebElement> elements) {
+        for (WebElement element : elements) {
+            if (element.getText().contains("Printed Chiffon Dress")) {
+                return true;
+            }
+        }
         return false;
+    }
 
+    public boolean isCasualDressesVisible() {
+        return dressesSubMenu.getText().contains("Casual Dresses");
     }
 }
