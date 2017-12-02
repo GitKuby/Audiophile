@@ -5,8 +5,11 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class StartPage {
 
@@ -28,9 +31,6 @@ public class StartPage {
 
     @FindBy(xpath = "//*[@id=\"block_top_menu\"]/ul/li[2]")
     private WebElement dressesButton;
-
-    @FindBy(xpath = "//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[1]")
-    private WebElement dressesSubMenu;
 
     @FindBy(xpath = "//*[@id=\"header\"]/div[2]/div/div/nav/div[1]/a")
     private WebElement signIn;
@@ -69,8 +69,7 @@ public class StartPage {
     }
 
     public WebElement getDressesSubMenu() {
-        System.out.println("SUBMENU: " + dressesSubMenu.getText());
-        return dressesSubMenu;
+        return driver.findElement(By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[1]"));
     }
 
     public List<WebElement> getProducts() {
@@ -95,6 +94,20 @@ public class StartPage {
     }
 
     public boolean isCasualDressesVisible() {
-        return dressesSubMenu.getText().contains("Casual Dresses");
+        return getDressesSubMenu().getText().contains("Casual Dresses");
+    }
+
+    public void setMouseOverDressesButton() {
+        Actions actions = new Actions(driver);
+        WebElement we = getDressesButton();
+        actions.moveToElement(we)
+                .build()
+                .perform();
+        WebElement dressesSubMenu = new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.visibilityOf(getDressesSubMenu()));
+    }
+
+    public boolean isDressesSubmenuVisible() {
+        return getDressesButton().isDisplayed();
     }
 }

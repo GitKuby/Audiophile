@@ -54,6 +54,7 @@ public class StartPageTest {
         driver.manage()
                 .timeouts()
                 .implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
     }
 
     @Before
@@ -98,14 +99,8 @@ public class StartPageTest {
     @Test
     public void checkDressessButton() throws IOException {
         startPage.open();
-        Actions actions = new Actions(driver);
-        WebElement we = startPage.getDressesButton();
-        actions.moveToElement(we)
-                .build()
-                .perform();
-        WebElement dressesSubMenu = new WebDriverWait(driver, 10)
-                .until(ExpectedConditions.elementToBeClickable(startPage.getDressesSubMenu()));
-        assertTrue(dressesSubMenu.isDisplayed());
+        startPage.setMouseOverDressesButton();
+        assertTrue(startPage.isDressesSubmenuVisible());
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(scrFile, new File(getFilePath()));
 
