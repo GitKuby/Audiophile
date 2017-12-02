@@ -1,6 +1,7 @@
 package pl.kuba.tau.sitetests;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.PhantomJsDriverManager;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -25,6 +26,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 
 public class StartPageTest {
 
@@ -45,10 +47,10 @@ public class StartPageTest {
 //        String binary = System.getProperty("phantomjs.binary");
 //        assertNotNull(binary);
 //        assertTrue(new File(binary).exists());
-        ChromeDriverManager.getInstance().setup();
-        driver = new ChromeDriver();
-//        PhantomJsDriverManager.getInstance().setup();
-//        driver = new PhantomJSDriver();
+//        ChromeDriverManager.getInstance().setup();
+//        driver = new ChromeDriver();
+        PhantomJsDriverManager.getInstance().setup();
+        driver = new PhantomJSDriver();
         driver.manage()
                 .timeouts()
                 .implicitlyWait(5, TimeUnit.SECONDS);
