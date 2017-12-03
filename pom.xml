@@ -5,7 +5,7 @@
     <groupId>pl.kuba.tau</groupId>
     <artifactId>Audiophile</artifactId>
     <packaging>jar</packaging>
-    <version>4.0</version>
+    <version>5.0</version>
     <name>Audiophile</name>
     
      <!-- phantomjs-maven-plugin needs maven 3.1+ -->
@@ -117,6 +117,22 @@
             <artifactId>phantomjsdriver</artifactId>
             <version>1.4.3</version>
         </dependency>
-
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>1.2.5</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>1.2.5</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>2.10.0</version>
+        </dependency>
     </dependencies>
 </project>

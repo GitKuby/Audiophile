@@ -81,4 +81,8 @@ public class RegisterPage {
                 By.cssSelector("#header > div.nav > div > div > nav > div:nth-child(2) > a"));
     }
 
+    public boolean isRegisterButtonVisible() {
+        return driver.findElement(By.id("submitAccount")).isDisplayed();
+    }
+
 }
