@@ -41,8 +41,8 @@ public class StartPageTest {
     private RegisterPage registerPage;
     private static String EMAIL = null;
     private final static String PASSWORD = "secret";
-    private final static String WIN_PATH = "c:\\tmp\\screenshot.png";
-    private final static String LINUX_PATH = "//screenshot.png";
+    private final static String WIN_PATH = ".\\target\\screenshot.png";
+    private final static String LINUX_PATH = ".//target//screenshot.png";
 
     @BeforeClass
     public static void driverSetup() {
