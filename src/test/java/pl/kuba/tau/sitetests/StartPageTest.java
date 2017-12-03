@@ -23,10 +23,14 @@ import pl.kuba.tau.pages.LoginPage;
 import pl.kuba.tau.pages.StartPage;
 import pl.kuba.tau.pages.RegisterPage;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 public class StartPageTest {
 
@@ -72,19 +76,19 @@ public class StartPageTest {
     @Test
     public void checkPhoneNoVisibility() {
         startPage.open();
-        Assert.assertNotNull(startPage.getPhoneNo());
+        assertNotNull(startPage.getPhoneNo());
     }
 
     @Test
     public void checkSliderVisibility() {
         startPage.open();
-        Assert.assertNotNull(startPage.getLoremSlider());
+        assertNotNull(startPage.getLoremSlider());
     }
 
     @Test
     public void checkBasketVisibility() {
         startPage.open();
-        Assert.assertNotNull(startPage.getBasketLink());
+        assertNotNull(startPage.getBasketLink());
     }
 
     @Test
@@ -118,7 +122,7 @@ public class StartPageTest {
     @Test
     public void checkSignIn() throws InterruptedException {
         startPage.open();
-        startPage.getSignIn().click();
+        startPage.clickSignIn();
         Thread.sleep(200);
         assertEquals(EXPECTED_URL, driver.getCurrentUrl());
     }

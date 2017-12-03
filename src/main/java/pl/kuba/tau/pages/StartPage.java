@@ -64,8 +64,8 @@ public class StartPage {
         return dressesButton;
     }
 
-    public WebElement getSignIn() {
-        return signIn;
+    public void clickSignIn() {
+        signIn.click();
     }
 
     public WebElement getDressesSubMenu() {
