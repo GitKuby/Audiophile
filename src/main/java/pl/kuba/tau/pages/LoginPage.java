@@ -45,8 +45,16 @@ public class LoginPage {
         clickSingIn();
     }
 
+    public WebElement getSignInButton() {
+        return driver.findElement(By.id("SubmitLogin"));
+    }
+
     public void clickSingIn() {
-        driver.findElement(By.id("SubmitLogin")).click();
+        getSignInButton().click();
+    }
+
+    public boolean isSingInButtonVisible() {
+        return getSignInButton().isDisplayed();
     }
 
     public boolean hasAuthenticationFailed() {

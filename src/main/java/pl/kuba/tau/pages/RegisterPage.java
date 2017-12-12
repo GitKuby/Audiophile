@@ -82,7 +82,7 @@ public class RegisterPage {
     }
 
     public boolean isRegisterButtonVisible() {
-        return driver.findElement(By.id("submitAccount")).isDisplayed();
+        return getRegistrationForm().isDisplayed();
     }
 
 }

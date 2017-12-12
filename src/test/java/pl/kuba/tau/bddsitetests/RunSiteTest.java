@@ -7,8 +7,8 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         format = {"pretty", "html:target/cucumber"},
-        features = {"classpath:UserRegistration.feature",
-            "classpath:InvalidLoginBLABLA.feature"}
+        features = {"classpath:UserRegistration.feature", "classpath:InvalidLogin.feature",
+            "classpath:CorrectLogin.feature"}
 )
 public class RunSiteTest {
 
