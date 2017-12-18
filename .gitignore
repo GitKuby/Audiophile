@@ -1,3 +1,4 @@
 /target/
 /.idea
 Audiophile.iml
+/scripts/hsqldb.jar
